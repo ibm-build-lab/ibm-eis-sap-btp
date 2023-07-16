@@ -6,12 +6,6 @@ This repository provides the following:
 - **API Connectors for EIS.** These connectors are built using the [Open Connectors](https://help.sap.com/docs/OPEN_CONNECTORS) capability of [SAP Integration Suite](https://www.sap.com/canada/products/technology-platform/integration-suite.html).
 - **Example Weather Application.** This is an application is created using the SAP Build Apps framework on BTP. The application relies on an instance of the EIS API connector. 
 
-To try these, clone the repo to your local machine.
-```
-git clone git@github.ibm.com:hcbt/eis-connector-for-sap.git
-```
-You will need an EIS API key.
-
 ## API Connectors for EIS
 
 Connectors built using the [Open Connectors](https://help.sap.com/docs/OPEN_CONNECTORS) provide an abstraction of the EIS API and provide them in a standard format to developers. Multiple instances of a connector can be instantiated, allowing a single EIS API key to be shared between multiple lines of business such that usage to be tracked per line of business.
