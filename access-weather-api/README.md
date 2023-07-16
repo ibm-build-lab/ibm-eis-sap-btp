@@ -8,7 +8,7 @@ This repository provides the following:
 - **API Connectors for EIS.** These connectors are built using the [Open Connectors](https://help.sap.com/docs/OPEN_CONNECTORS) capability of [SAP Integration Suite](https://www.sap.com/canada/products/technology-platform/integration-suite.html).
 - **Example Weather Application.** This is an application is created using the SAP Build Apps framework on BTP. The application relies on an instance of the EIS API connector. 
 
-## API Connectors for EIS
+## Deploy API Connectors with SAP Integration Suite 
 
 Connectors built using the [Open Connectors](https://help.sap.com/docs/OPEN_CONNECTORS) provide an abstraction of the EIS API and provide them in a standard format to developers. Multiple instances of a connector can be instantiated, allowing a single EIS API key to be shared between multiple lines of business such that usage to be tracked per line of business.
 
@@ -119,7 +119,7 @@ To get the correct value for this open the SAP Integration Suite and, for the EI
 
 At this point, the application is ready to use. 
 
-## API Usage Metrics
+## Collect API Usage Metrics
 
 You can use the EIS connector to share a single EIS API key across multiple lines-of-business (LoBs): create a separate *instance* of the connector for each LoB, but use the same EIS API key for all the instances.
 
