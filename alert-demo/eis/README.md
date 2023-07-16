@@ -7,7 +7,7 @@ In this part of the tutorial, you will set up EIS alerts from a special `HEARTBE
 ## Prerequisites
 
 - You will need an EIS account. There's a free 30-day trial available at the [product home page](https://www.ibm.com/products/environmental-intelligence-suite).
-- The Request URL and Authorization String of the SAP Open Connector instance created in Part 2.
+- The **Request URL** and **Authorization String** of the SAP Open Connector instance created in Part 2.
 
 ## Steps
 
@@ -27,6 +27,7 @@ export MY_CONNECTOR_AUTHORIZATION_STRING="<Authorization String>"
 
 **NOTE**:
 - For a Client ID such as `saascore-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`, `saascore` is the service name, and `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` is the Tenant ID.
+- The Authorization String should look like `User xxxxxx, Organization yyyyyy, Element zzzzzz`.
 
 ### Step 2: Create authentication tokens
 
@@ -50,7 +51,6 @@ export JWT=$(curl -X GET --location "https://api.ibm.com/saascore/run/authentica
 
 **NOTE**: More details about the authentication tokens can be found [here](https://www.ibm.com/docs/en/environmental-intel-suite?topic=apis-creating-authentication-tokens).
 
-
 ### Step 3: Store the Authorization String as a Secret
 
 A Secret object can be created in EIS to store the Authentication String of the SAP Open Connector instance you've created in Part 2.
@@ -65,7 +65,7 @@ cat <<EOF > mywebhooksecretkey.json
 EOF
 ```
 
-Run the following command to create the Secret, and make sure you get a 201 response status code.
+Make an API call to create the Secret named `mywebhooksecretkey`:
 
 ```sh
 curl -v -X PUT --location "https://api.ibm.com/infohub/run/metadata/api/v1/na/tenants/${MY_TENANT_ID}/webhook/mywebhooksecretkey" \
@@ -92,7 +92,7 @@ cat <<EOF > myalertendpoint.json
   "endpointType": "AlertEndpoint",
   "logicalName": "myalertendpoint",
   "apiKeyName": "mywebhooksecretkey",
-  "webhookPayloadUrl": "${MY_CONNECTOR_AUTHORIZATION_STRING}",
+  "webhookPayloadUrl": "${MY_CONNECTOR_REQUEST_URL}",
   "allowedOperations": [
       "create",
       "update",
@@ -158,6 +158,8 @@ curl -X POST --location 'https://api.ibm.com/infohub/run/graph/na' \
   --data "$(echo '{"query": "mutation ($ce: ContactInput!) { upsertContact(ContactEvent: $ce) }", "variables": '"$(cat mycontact.json | jq -r tostring)"'}')"
 ```
 
+**NOTE**: If you get an error `bash: !: event not found`, you can run `set +H` to disable history substitution, and then run the command again.
+
 ### Step 6: Create an Asset
 
 An Asset represents a location, which is defined by geographic coordinates. One or more Contacts can be associated with an Asset.
@@ -205,7 +207,7 @@ Make an API call to create the Asset from the JSON file:
 
 ```sh
 curl -X POST --location 'https://api.ibm.com/infohub/run/graph/na' \
-  --header "X-IBM-Client-Id: infohub-${MY_TENANT_ID}" \
+  --header "X-IBM-Client-Id: infohub-${TENANT_ID}" \
   --header 'Accept: application/json' \
   --header "Authorization: Bearer ${JWT}" \
   --header 'Content-Type: application/json' \
@@ -221,24 +223,24 @@ Create a JSON file for the E-mail Message Template. For example:
 ```sh
 cat <<EOF > myemailtemplate.json
 {
-    "name": "myemailtemplate",
-    "logicalName": "myemailtemplate",
-    "description": "description of myemailtemplate",
-    "descriptionInfo": "My E-mail template.",
-    "tenantId": "${MY_TENANT_ID}",
-    "type": "EmailMessageTemplate",
-    "messages": [
-        {
-            "bodyContentType": "HTML",
-            "subjectLine": "Weather notification - Example Co.",
-            "body": "<!DOCTYPE html><html lang=\"en\"><head><title>Weather notification - Example Co.</title></head><body>This is a test.</body></html>",
-            "locale": "en"
-        }
-    ],
-    "enabled": true,
-    "defaultLocale": "en",
-    "isGloballyVisible": false,
-    "isComplete": true
+  "name": "myemailtemplate",
+  "logicalName": "myemailtemplate",
+  "description": "description of myemailtemplate",
+  "descriptionInfo": "My E-mail template.",
+  "tenantId": "${MY_TENANT_ID}",
+  "type": "EmailMessageTemplate",
+  "messages": [
+    {
+      "bodyContentType": "HTML",
+      "subjectLine": "Weather notification - Example Co.",
+      "body": "<!DOCTYPE html><html lang=\"en\"><head><title>Weather notification - Example Co.</title></head><body>This is a test.</body></html>",
+      "locale": "en"
+    }
+  ],
+  "enabled": true,
+  "defaultLocale": "en",
+  "isGloballyVisible": false,
+  "isComplete": true
 }
 EOF
 ```
@@ -256,10 +258,12 @@ curl -X POST --location "https://api.ibm.com/infohub/run/metadata/api/v1/na/emai
 
 ### Step 8: Create an Alert Rule
 
+The Alert Rule connects the notification methods to a criteria definition. When the Alert Rule is activated, notifications are sent for the weather alerts that meet the criteria for the rule. Notifications are sent to HTTP endpoints, to contacts who are subscribed to the criteria, and to the Action center.
+
 Create a JSON file for the Rule. For example:
 
 ```sh
-cat <<EOF > rule.json
+cat <<EOF > myrule.json
 {
   "name": "myrule",
   "type": "AlertRule",
@@ -279,7 +283,7 @@ cat <<EOF > rule.json
         {
             "MATCHES_SAVED_FILTER": {
                 "LOGICAL_NAME": "HEARTBEAT",
-                "VERSION": 1.0
+                "VERSION": 1
             }
         }
       ]
@@ -310,7 +314,7 @@ cat <<EOF > rule.json
 EOF
 ```
 
-**NOTE**: The value of `endpointId` should be the actual id of the alert endpoint created in a previous step.
+**NOTE**: The value of `endpointId` should be the actual id of the Alert Endpoint created in a previous step.
 
 Make an API call to create the Rule from the JSON file:
 
@@ -320,7 +324,7 @@ curl -X POST --location "https://api.ibm.com/infohub/run/metadata/api/v1/na/aler
   --header 'Accept: application/json' \
   --header "Authorization: Bearer ${JWT}" \
   --header 'Content-Type: application/json' \
-  --data @rule.json
+  --data @myrule.json
 ```
 
-If you've completed all the steps successfully, you should be getting alert messages every 30 minutes, both at the E-mail address you provided for the EIS Contact you just defined, and in the Event Mesh queue(s) you created in SAP BTP in Part 1.
+If you've completed all the steps successfully, you should be getting alert messages every 30 minutes, both at the E-mail address of the EIS Contact you just defined, and in the Event Mesh queue(s) you created in SAP BTP in Part 1.
