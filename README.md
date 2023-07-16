@@ -12,6 +12,6 @@ In order to perform the tutorials you will need to have access to IBM EIS.
 - IBMers can request EIS access [here](https://eistrialrequest.ideas.aha.io/portal_session/new).
 - Non-IBMers can request a [30-day free trial](https://www.ibm.com/account/reg/us-en/signup?formid=urx-51911&_gl=1*9cen1r*_ga*NzczNTIyMDM3LjE2ODkxNzIwNjE.*_ga_FYECCCS21D*MTY4OTUzODI1My4yMi4xLjE2ODk1Mzg2MjEuMC4wLjA).
 
-In addition, you will need access to the SAP Business Technology Platform (BTP). For the first tutorial you can use a trial account. The second tutorial requires an enterprise account in order to deploy SAP Event Mesh.
+In addition, you will need access to the SAP Business Technology Platform (BTP). For the first tutorial you can use a [trial account](https://developers.sap.com/tutorials/hcp-create-trial-account.html). The second tutorial requires an [enterprise account](https://help.sap.com/docs/btp/sap-business-technology-platform/enterprise-accounts) in order to deploy SAP Event Mesh.
 
 IBMers and registered Business Partners may also visit the associated [TechZone Collection](https://techzone.ibm.com/collection/64b059317f0fe20017d86683).
