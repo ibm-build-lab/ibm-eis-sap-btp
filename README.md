@@ -1,6 +1,6 @@
 # Integrate IBM Environmental Intelligence Suite (EIS) with SAP Business Technology Platform (BTP)
 
-This repository demonstrates integrations between IBM Environmental Intelligence Suite (EIS) and SAP Business Technology Platform (BTP).
+This repository is intended for integrations between IBM Environmental Intelligence Suite (EIS) and SAP Business Technology Platform (BTP).
 
 There are two tutorials in this repoistory:
 
