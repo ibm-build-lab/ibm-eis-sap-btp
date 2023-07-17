@@ -13,6 +13,13 @@ We use the following components:
 
 ## Prerequisites
 
+In order to perform this tutorial you will need to have access to IBM EIS.
+
+- IBMers can request EIS access [here](https://eistrialrequest.ideas.aha.io/portal_session/new).
+- Non-IBMers can request a [30-day free trial](https://www.ibm.com/account/reg/us-en/signup?formid=urx-51911&_gl=1*9cen1r*_ga*NzczNTIyMDM3LjE2ODkxNzIwNjE.*_ga_FYECCCS21D*MTY4OTUzODI1My4yMi4xLjE2ODk1Mzg2MjEuMC4wLjA).
+
+In addition, you will need access to the SAP Business Technology Platform (BTP). You will need an [enterprise account](https://help.sap.com/docs/btp/sap-business-technology-platform/enterprise-accounts) in order to deploy SAP Event Mesh.
+
 
 ## Tutorial outline
 
