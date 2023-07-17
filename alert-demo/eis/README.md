@@ -6,7 +6,7 @@ In this part of the tutorial, you will set up EIS alerts from a special `HEARTBE
 
 ## Prerequisites
 
-- You will need an EIS account. There's a free 30-day trial available at the [product home page](https://www.ibm.com/products/environmental-intelligence-suite).
+- You will need an EIS API key.
 - The **Request URL** and **Authorization String** of the SAP Open Connector instance created in Part 2.
 
 ## Steps
