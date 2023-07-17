@@ -12,6 +12,8 @@ This repository provides the following:
 
 ![image](https://github.com/ibm-build-lab/ibm-eis-sap-btp/assets/49033907/20289270-98b9-4820-b4b6-ab83345eeebd)
 
+## Part 1: Deploy API Connectors with SAP Integration Suite 
+
 ## Prerequisites
 
 Install the SAP Integation Suite. You can use this [tutorial](https://developers.sap.com/tutorials/cp-starter-isuite-onboard-subscribe.html) to install it with a trial account. Once installed, click on the **Manage Capabilities** tile. This opens a window in which you can enable the **Open Connectors** capability. 
@@ -21,8 +23,6 @@ Click on **Create Connectors** to enter the Open Connectors GUI.
 ![image](https://media.github.ibm.com/user/24824/files/ee39bd02-d7e1-4005-8d7d-6477ef84bf3a)
 
 **Tip:** You may occassionally see a message when loading the Open Connectors GUI that the session has expired. In such cases, clear cookies and site data in your browser.
-
-## Part 1: Deploy API Connectors with SAP Integration Suite 
 
 ### Step 1: Import the EIS connector
 
@@ -76,7 +76,7 @@ You can use the EIS API documentation to help fill out fields in the API forms.
 
 Note that the curl calls generated from this form can be run from any application with internet access. They are not restricted to run in a particular network.
 
-## Run an Example Weather Application
+## Part 2: Run an Example Weather Application
 
 The example weather application has been developed using [SAP Build Apps](https://learning.sap.com/products/sap-build/build-apps). This is a framework for writing low-code/no-code web or mobile applications.
 
@@ -121,7 +121,7 @@ To get the correct value for this open the SAP Integration Suite and, for the EI
 
 At this point, the application is ready to use. 
 
-## Collect API Usage Metrics
+## Part 3: Collect API Usage Metrics
 
 You can use the EIS connector to share a single EIS API key across multiple lines-of-business (LoBs): create a separate *instance* of the connector for each LoB, but use the same EIS API key for all the instances.
 
