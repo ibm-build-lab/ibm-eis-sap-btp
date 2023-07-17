@@ -6,11 +6,13 @@ Connectors built using the [Open Connectors](https://help.sap.com/docs/OPEN_CONN
 
 This repository provides the following:
 - **API Connectors for EIS.** These connectors are built using the [Open Connectors](https://help.sap.com/docs/OPEN_CONNECTORS) capability of [SAP Integration Suite](https://www.sap.com/canada/products/technology-platform/integration-suite.html).
-- **Example Weather Application.** This is an application is created using the SAP Build Apps framework on BTP. The application relies on an instance of the EIS API connector. 
+- **Example Weather Application.** This is an application is created using the SAP Build Apps framework on BTP. The application relies on an instance of the EIS API connector.
 
-## Deploy API Connectors with SAP Integration Suite 
+## Reference Architecture
 
-### Prerequisites
+![image](https://github.com/ibm-build-lab/ibm-eis-sap-btp/assets/49033907/20289270-98b9-4820-b4b6-ab83345eeebd)
+
+## Prerequisites
 
 Install the SAP Integation Suite. You can use this [tutorial](https://developers.sap.com/tutorials/cp-starter-isuite-onboard-subscribe.html) to install it with a trial account. Once installed, click on the **Manage Capabilities** tile. This opens a window in which you can enable the **Open Connectors** capability. 
 
@@ -19,6 +21,8 @@ Click on **Create Connectors** to enter the Open Connectors GUI.
 ![image](https://media.github.ibm.com/user/24824/files/ee39bd02-d7e1-4005-8d7d-6477ef84bf3a)
 
 **Tip:** You may occassionally see a message when loading the Open Connectors GUI that the session has expired. In such cases, clear cookies and site data in your browser.
+
+## Part 1: Deploy API Connectors with SAP Integration Suite 
 
 ### Step 1: Import the EIS connector
 
