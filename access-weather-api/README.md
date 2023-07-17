@@ -197,3 +197,6 @@ Below is an example of one of the records returned from this call.
 }
 ```
 
+## Conclusion
+
+In this tutorial, you have deployed an API using SAP Open Connectors. You have run a weather application that was created using the SAP Build Apps framework. This weather application uses an instance of the API connector to access weather info. Finally, you have employed the SAP Open Connectors API to get usage info about the weather API.
