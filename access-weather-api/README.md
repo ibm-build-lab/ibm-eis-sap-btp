@@ -1,12 +1,21 @@
 # Using IBM Environmental Intelligence Suite (EIS) from SAP Business Technology Platform (BTP)
 
-In this tutorial you will deploy an API connector for IBM EIS using the [Open Connectors](https://help.sap.com/docs/OPEN_CONNECTORS) capability of SAP Integration Suite. You will then run a weather application built using the SAP Build App framework that uses the API served by SAP Integration Suite. Finally, you will use SAP Integration Suite to collect API usage information for the IBM EIS API.
+In this tutorial you will deploy an API connector for IBM EIS using the [Open Connectors](https://help.sap.com/docs/OPEN_CONNECTORS) capability of [SAP Integration Suite](https://www.sap.com/canada/products/technology-platform/integration-suite.html). You will then run a weather application built using the SAP Build App framework that uses the API served by SAP Integration Suite. Finally, you will use SAP Integration Suite to collect API usage information for the IBM EIS API.
 
 Connectors built using the [Open Connectors](https://help.sap.com/docs/OPEN_CONNECTORS) provide an abstraction of the EIS API and provide them in a standard format to developers. Multiple instances of a connector can be instantiated, allowing a single EIS API key to be shared between multiple lines of business such that usage to be tracked per line of business.
 
-This repository provides the following:
-- **API Connectors for EIS.** These connectors are built using the [Open Connectors](https://help.sap.com/docs/OPEN_CONNECTORS) capability of [SAP Integration Suite](https://www.sap.com/canada/products/technology-platform/integration-suite.html).
-- **Example Weather Application.** This is an application is created using the SAP Build Apps framework on BTP. The application relies on an instance of the EIS API connector.
+There are three parts to the tutorial.
+
+1. **Deploy API Connectors with SAP Integration Suite.** You will deploy an API connector for IBM EIS using SAP Integration Suite. Instances of this connector provide a REST API to obtain weather information. 
+2. **Run an Example Weather Application.** The example weather application is built using the SAP Build Apps framework. It calls the API connector to get weather information.
+3. **Collect API Usage Metrics.** You will use the SAP Open Connectors API to get usage information about individual connector instances.
+
+In order to perform the tutorials you will need to have access to IBM EIS.
+
+- IBMers can request EIS access [here](https://eistrialrequest.ideas.aha.io/portal_session/new).
+- Non-IBMers can request a [30-day free trial](https://www.ibm.com/account/reg/us-en/signup?formid=urx-51911&_gl=1*9cen1r*_ga*NzczNTIyMDM3LjE2ODkxNzIwNjE.*_ga_FYECCCS21D*MTY4OTUzODI1My4yMi4xLjE2ODk1Mzg2MjEuMC4wLjA).
+
+In addition, you will need access to the SAP Business Technology Platform (BTP). For this tutorial you can use a [trial account](https://developers.sap.com/tutorials/hcp-create-trial-account.html).
 
 ## Reference Architecture
 
@@ -47,7 +56,7 @@ Once completed you will be able to see the newly added private connectors.
 
 ### Step 2: Create a Connector Instance
 
-In order to use a connector, you must first create an instance of the connector. You will need an EIS API key, which will be associated with the instance. One or more instances can share the same API key, allowing you to share the key between different lines of business.
+In order to use a connector, you must first create an instance of the connector. You will need an EIS API key, which will be associated with the instance. One or more instances can share the same API key, allowing you to share the key between different lines of business. This API key should have been sent to you by email when you registered for the EIS service.
 
 Click on the **Instances** tab, and then click **Create Instance**.
 
