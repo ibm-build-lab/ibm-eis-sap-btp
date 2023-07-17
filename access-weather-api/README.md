@@ -10,7 +10,7 @@ There are three parts to the tutorial.
 2. **Run an Example Weather Application.** The example weather application is built using the SAP Build Apps framework. It calls the API connector to get weather information.
 3. **Collect API Usage Metrics.** You will use the SAP Open Connectors API to get usage information about individual connector instances.
 
-In order to perform the tutorials you will need to have access to IBM EIS.
+In order to perform the tutorials you will need to have an EIS API key.
 
 - IBMers can request EIS access [here](https://eistrialrequest.ideas.aha.io/portal_session/new).
 - Non-IBMers can request a [30-day free trial](https://www.ibm.com/account/reg/us-en/signup?formid=urx-51911&_gl=1*9cen1r*_ga*NzczNTIyMDM3LjE2ODkxNzIwNjE.*_ga_FYECCCS21D*MTY4OTUzODI1My4yMi4xLjE2ODk1Mzg2MjEuMC4wLjA).
