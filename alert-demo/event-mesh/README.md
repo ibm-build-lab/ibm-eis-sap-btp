@@ -80,9 +80,9 @@ This functionality is also useful when you want to see and consume the EIS alert
 
 ### Step 3: Subscribe to a topic
 
-While messages can be posted directly into a queue, queues themselves can also subscribe to one or more *topics*. Once the message is posted to a topic, it is added to any queues subscribed to that topic. 
+Messages can be posted either to queues directly, or posted to a *topic*. When a message is posted to a topic, the message will appear on every queue that is subscribed to that topic. Note that while queues persist message until they are consumed, topics will not persist messages.
 
-This can be useful in context of IBM EIS alerts. You could potentially create multiple topics for different classes of alerts. Queues may corrspond to applications. The queue for any particular application can be subscribed to topics of interest for that application.
+Topics can be useful in context of weather alerts. You could potentially create multiple topics for different classes of alerts. Queues may correspond to applications. The queue for any particular application can be subscribed to topics of interest for that application.
 
 For this tutorial, you will subscribe your queue to a single topic that. Under the **Queues** tab in the GUI, click on the **Actions** menu button. Under this menu, click **Queue subscriptions**.
 
