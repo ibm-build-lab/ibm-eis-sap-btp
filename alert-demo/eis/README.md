@@ -6,14 +6,14 @@ In this part of the tutorial, you will set up EIS alerts from a special `HEARTBE
 
 ## Prerequisites
 
-- You will need an EIS API key.
+- You will need an EIS account. There's a free 30-day trial available at the [product home page](https://www.ibm.com/products/environmental-intelligence-suite).
 - The **Request URL** and **Authorization String** of the SAP Open Connector instance created in Part 2.
 
 ## Steps
 
 ### Step 1: Before you begin
 
-If it hasn't be done already, create an IAM API key by following the IBM Cloud documentation [here](https://cloud.ibm.com/docs/account?topic=account-userapikey&interface=ui#create_user_key). Then, go to the [EIS information page](https://www.app.ibm.com/environmental-intelligence/dashboard?cuiURL=static/settings/information) to get account information.
+If it hasn't be done already, create an IAM API key in your IBM Cloud account, by following the IBM Cloud documentation [here](https://cloud.ibm.com/docs/account?topic=account-userapikey&interface=ui#create_user_key). Then, go to the [EIS information page](https://www.app.ibm.com/environmental-intelligence/dashboard?cuiURL=static/settings/information) to get the account information.
 
 Create some environment variables:
 
