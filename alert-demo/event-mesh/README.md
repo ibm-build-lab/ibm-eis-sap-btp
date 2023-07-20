@@ -70,15 +70,30 @@ Now you will be able to see the newly created queue under the **Queues** tab.
 
 ![image](https://media.github.ibm.com/user/24824/files/7be858bf-3279-4f88-9c58-a8a688857cdf)
 
-Notice that you can view the number of messages in the queue. This will come in handy when you start sending EIS alerts to the queue.
+You can view the number of messages in the queue from the above window. This will come in handy when you start sending EIS alerts to the queue.
 
-You can try sending and recieving messages under the **Test** tab.
+Try sending and recieving messages under the **Test** tab.
 
 ![image](https://media.github.ibm.com/user/24824/files/1a4b6260-c0df-455e-b840-4ab169894de0)
 
 This functionality is also useful when you want to see and consume the EIS alert messages.
 
-### Step 3: Create a service key
+### Step 3: Subscribe to a topic
+
+Messages can be posted either to queues directly, or posted to a *topic*. When a message is posted to a topic, the message will appear on every queue that is subscribed to that topic. Note that while queues persist message until they are consumed, topics will not persist messages.
+
+Topics can be useful in context of weather alerts. You could potentially create multiple topics for different classes of alerts. Queues may correspond to applications. The queue for any particular application can be subscribed to topics of interest for that application.
+
+For this tutorial, you will subscribe your queue to a single topic that. Under the **Queues** tab in the GUI, click on the **Actions** menu button. Under this menu, click **Queue subscriptions**.
+
+In the form, add a queue subscription named:
+```
+myorg/weather/eis/alerts
+```
+
+Later, you will configure IBM EIS to send alerts to this topic.
+
+### Step 4: Create a service key
 
 In this step, you will create a Service Key for the SAP Event Mesh instance. This will allow a client program to send messages to and receive messages from the SAP Event Mesh instance. Follow the directions [here](https://help.sap.com/docs/service-manager/sap-service-manager/creating-service-keys-in-cloud-foundry) to create the service key.
 
@@ -90,7 +105,7 @@ Scroll down in this window until you find the `httprest` protocol section. Make 
 
 Scroll down until you find the `httprest` protocol section. Make note of the values for `clientid`, `clientsecret`, `tokenendpoint` and `uri` as these will be used in the next part of this tutorial. 
 
-### Step 4: Test SAP Event Mesh from the Command Line (Optional)
+### Step 5: Test SAP Event Mesh from the Command Line (Optional)
 
 In this step you will validate that the token is working by using `curl` to send and receive messages. You can potentially use this approach to have an application consume alert messages from a queue.
 
@@ -124,14 +139,14 @@ Note that in this string, the `/` characters of the path are replaced with `%2F`
 
 #### Send a message
 
-Run the following command to send a message to a queue. The JSON message is in the body of this POST.
+Run the following command to send a message to the queue. The JSON message is in the body of this POST.
 ```
 curl -X POST -H "Authorization: Bearer ${EM_ACCESS_TOKEN}" -H "x-qos: 0" -H "Content-Type: application/json" "${EM_URL}/messagingrest/v1/queues/${EM_QUEUE_NAME}/messages" -d "{'property':'value'}"
 ```
 
 #### Consume a message
 
-Run the following to consume a message from a queue.
+Run the following to consume a message from the queue.
 ```
 curl -X POST -H "Authorization: Bearer ${EM_ACCESS_TOKEN}" -H "x-qos: 0" -H "Content-Type: application/json" "${EM_URL}/messagingrest/v1/queues/${EM_QUEUE_NAME}/messages/consumption"
 ```

@@ -60,11 +60,13 @@ Set fields in the form using values as follows:
 - **OAuth API Secret**: `clientsecret` from the SAP Event Mesh instance.
 - **OAuth Token URL**: `tokenendpoint` from the SAP Event Mesh instance followed by the string: `?grant_type=client_credentials&response_type=token`.
 - **uri**: `uri` from the SAP Event Mesh instance. 
-- **x-address**: `queue:myorg/weather/eis/alerts`.
+- **x-address**: `topic:myorg/weather/eis/alerts`. 
 
-Then click **Create Instance**.
+**Note.** Instead of `topic` at the beginning of the **x-address** field, you can use `queue` to send messages directly to a queue.
 
-![image](https://media.github.ibm.com/user/24824/files/5c62117c-b55a-4d90-bd20-3ce286245a11)
+Click **Create Instance**.
+
+![image](https://github.com/ibm-build-lab/ibm-eis-sap-btp/assets/49033907/8e2eef8d-0d35-4f14-91ce-b32a6b095934)
 
 Select to import the **sendMessage** API call, and click **Import**.
 
