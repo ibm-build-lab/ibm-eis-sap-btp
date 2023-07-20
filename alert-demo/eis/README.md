@@ -256,7 +256,57 @@ curl -X POST --location "https://api.ibm.com/infohub/run/metadata/api/v1/na/emai
   --data @myemailtemplate.json
 ```
 
-### Step 8: Create an Alert Rule
+### Step 8: Create a Criteria
+
+A criteria definition can represent a single weather alert or a set of alerts.
+
+Create a JSON file for the Criteria. For example:
+
+```sh
+cat <<EOF > mycriteria.json
+{
+  "name": "mycriteria",
+  "logicalName": "mycriteria",
+  "tenantId": "${MY_TENANT_ID}",
+  "description": "description for mycriteria",
+  "type": "SavedFilter",
+  "enabled": true,
+  "primaryBusinessObjectTypes": [
+    "WeatherEvent"
+  ],
+  "hint": {
+    "viewId": "geospatialevents"
+  },
+  "advancedFilter": {
+    "OR": [
+      {
+        "GREATER_EQUALS": [
+          {
+            "SELECT": "heartbeat"
+          },
+          {
+            "VALUE": "0"
+          }
+        ]
+      }
+    ]
+  }
+}
+EOF
+```
+
+Make an API call to create the Rule from the JSON file:
+
+```sh
+curl -X POST --location "https://api.ibm.com/infohub/run/metadata/api/v1/na/filters" \
+  --header "X-IBM-Client-Id: infohub-${MY_TENANT_ID}" \
+  --header 'Accept: application/json' \
+  --header "Authorization: Bearer ${JWT}" \
+  --header 'Content-Type: application/json' \
+  --data @mycriteria.json
+```
+
+### Step 9: Create an Alert Rule
 
 The Alert Rule connects the notification methods to a criteria definition. When the Alert Rule is activated, notifications are sent for the weather alerts that meet the criteria for the rule. Notifications are sent to HTTP endpoints, to contacts who are subscribed to the criteria, and to the Action center.
 
