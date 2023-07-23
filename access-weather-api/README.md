@@ -146,7 +146,7 @@ Ideally, we would like to get the successful calls made to IBM EIS service itsel
 
 ![image](https://media.github.ibm.com/user/24824/files/6bc844fa-1957-4c1e-9930-b3b554ff6818)
 
-In order to get successful calls made to a particular instance that trigger EIS calls, you can use the following command.
+Use the following command to get a JSON list of the successful calls made to a connector instance that involve calling IBM EIS. 
 ```
 curl "https://api.openconnectors.trial.us10.ext.hana.ondemand.com/elements/api-v2/usage?status=SUCCESS&instanceIds%5B%5D=${INSTANCE_ID}" -H  "accept: application/json" -H  "Authorization: ${AUTH}" | jq '.[] | select(.vendor_resource != null)'
 ```
@@ -154,7 +154,9 @@ Where:
 - `INSTANCE_ID` is the ID number of the connector instance, e.g. `4945151`.
 - `AUTH` is the **Authorization** string that can be found by testing the Usage API in the GUI.
 
-Optionally, if you want to restrict the range of records to particular dates, you can use the following command:
+The `curl` command will return a list of calls made to the specified connector instance in JSON format. By filtering for only those elements with a `vendor_resource` field specified, we will get those calls that in turn triggered a call to EIS. The value for the field gives the EIS endpoint that is invoked.
+
+Optionally, if you want to further restrict the range of records to particular dates, you can use the following command:
 ```
 curl "https://api.openconnectors.trial.us10.ext.hana.ondemand.com/elements/api-v2/usage?status=SUCCESS&instanceIds%5B%5D=${INSTANCE_ID}&from=${START_TIME}&to=${END_TIME}" -H  "accept: application/json" -H  "Authorization: ${AUTH}" | jq '.[] | select(.vendor_resource != null)' 
 ```
@@ -162,9 +164,7 @@ Where:
 - `START_TIME` is specified in ISO 8601 format, e.g. '2023-04-14T00:00:00-04:00'. An unspecified time zone defaults to UTC.
 - `END_TIME` is specified in ISO 8601 format, e.g. '2023-05-14T00:00:00-04:00'. An unspecified time zone defaults to UTC.
 
-The `curl` command will return a list of calls made to the specified connector instance in JSON format. By filtering for only those elements with a `vendor_resource` field specified, we will get those calls that in turn triggered a call to EIS. The value for the field gives the EIS endpoint that is invoked.
-
-It is straightforward to get the number of calls made to EIS from this returned JSON structure.
+It is straightforward to get the number of calls made to EIS from this returned JSON.
 
 Below is an example of one of the records returned from this call.
 
