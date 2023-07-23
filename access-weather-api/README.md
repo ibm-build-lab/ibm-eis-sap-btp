@@ -146,13 +146,19 @@ In order to determine the number of successful calls made to EIS via a connector
 
 In order to get successful calls made to a particular instance that trigger EIS calls, you can use the following command.
 ```
+curl "https://api.openconnectors.trial.us10.ext.hana.ondemand.com/elements/api-v2/usage?status=SUCCESS&instanceIds%5B%5D=${INSTANCE_ID}" -H  "accept: application/json" -H  "Authorization: ${AUTH}" | jq '.[] | select(.vendor_resource != null)'
+```
+Where:
+- `END_TIME` is specified in ISO 8601 format, e.g. '2023-05-14T00:00:00-04:00'. An unspecified time zone defaults to UTC.
+- `AUTH` is the authorization string that can be found by testing the Usage API in the GUI.
+
+Optionally, if you want to restrict the range of records to particular dates, you can use the following command:
+```
 curl "https://api.openconnectors.trial.us10.ext.hana.ondemand.com/elements/api-v2/usage?status=SUCCESS&instanceIds%5B%5D=${INSTANCE_ID}&from=${START_TIME}&to=${END_TIME}" -H  "accept: application/json" -H  "Authorization: ${AUTH}" | jq '.[] | select(.vendor_resource != null)' 
 ```
 Where:
-- `INSTANCE_ID` is the integer ID of the connector instance, e.g. `4916312`.
 - `START_TIME` is specified in ISO 8601 format, e.g. '2023-04-14T00:00:00-04:00'. An unspecified time zone defaults to UTC.
 - `END_TIME` is specified in ISO 8601 format, e.g. '2023-05-14T00:00:00-04:00'. An unspecified time zone defaults to UTC.
-- `AUTH` is the authorization string that can be found by testing the Usage API in the GUI.
 
 The `curl` command will return a list of calls made to the specified connector instance in JSON format. By filtering for only those elements with a `vendor_resource` field specified, we will get those calls that in turn triggered a call to EIS. The value for the field gives the EIS endpoint that is invoked.
 
