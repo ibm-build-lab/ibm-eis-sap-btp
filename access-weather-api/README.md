@@ -132,15 +132,17 @@ At this point, the application is ready to use.
 
 ## Part 3: Collect API Usage Metrics
 
-You can use the EIS connector to share a single EIS API key across multiple lines-of-business (LoBs): create a separate *instance* of the connector for each LoB, but use the same EIS API key for all the instances.
+Note that a single IBM EIS API key can be used by multiple connector instances. This can be useful for sharing access to the weather APIs across lines-of-business. In this section, you will see how to get the weather API usage for a single connector instance.
 
-In order to track API usage per LoB, the Open Connectors GUI provides an **Activity** page.
+In order to track API usage, then Open Connectors GUI provides an **Activity** page.
 
 ![image](https://media.github.ibm.com/user/24824/files/d96b0d98-648d-4adc-b61f-a8d2fa348fc8)
 
-Under the **API Logs** tab, you can filter on a particular connector instance to see all of the calls made to that connector. However, note that this includes all the calls made to the connector, which includes both successful and unsuccessful calls, as well as calls that do not in turn trigger calls to EIS.
+Under the **API Logs** tab, you can filter on a particular connector instance to see all of the API calls made to that instance. 
 
-In order to determine the number of successful calls made to EIS via a connector instance, we can employ the **usage** API. The documentation is available by clicking on **API Docs** at the top right of the window, and then clicking on the **Usage** tab.
+However, note that this page includes all the calls made to the connector instance, including both successful and unsuccessful calls, as well as calls to the Open Connectors instance that do not generate a call to the IBM EIS service. These may be for example, calls to get the API documentation or usage metrics for the connector. 
+
+Ideally, we would like to get the successful calls made to IBM EIS service itself. For this, we will employ the **usage** API call. The documentation for this call is available by clicking on **API Docs** at the top right of the window, and then clicking on the **Usage** tab.
 
 ![image](https://media.github.ibm.com/user/24824/files/6bc844fa-1957-4c1e-9930-b3b554ff6818)
 
