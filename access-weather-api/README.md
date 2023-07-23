@@ -149,8 +149,8 @@ In order to get successful calls made to a particular instance that trigger EIS 
 curl "https://api.openconnectors.trial.us10.ext.hana.ondemand.com/elements/api-v2/usage?status=SUCCESS&instanceIds%5B%5D=${INSTANCE_ID}" -H  "accept: application/json" -H  "Authorization: ${AUTH}" | jq '.[] | select(.vendor_resource != null)'
 ```
 Where:
-- `END_TIME` is specified in ISO 8601 format, e.g. '2023-05-14T00:00:00-04:00'. An unspecified time zone defaults to UTC.
-- `AUTH` is the authorization string that can be found by testing the Usage API in the GUI.
+- `INSTANCE_ID` is the ID number of the connector instance, e.g. `4945151`.
+- `AUTH` is the **Authorization** string that can be found by testing the Usage API in the GUI.
 
 Optionally, if you want to restrict the range of records to particular dates, you can use the following command:
 ```
