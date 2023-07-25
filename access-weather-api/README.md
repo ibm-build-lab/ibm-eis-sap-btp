@@ -1,4 +1,4 @@
-# Using IBM Environmental Intelligence Suite (EIS) from SAP Business Technology Platform (BTP)
+# Access Weather APIs
 
 In this tutorial you will deploy an API connector for IBM EIS using the [Open Connectors](https://help.sap.com/docs/OPEN_CONNECTORS) capability of [SAP Integration Suite](https://www.sap.com/canada/products/technology-platform/integration-suite.html). You will then run a weather application built using the SAP Build App framework that uses the API served by SAP Integration Suite. Finally, you will use SAP Integration Suite to collect API usage information for the IBM EIS API.
 
