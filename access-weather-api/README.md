@@ -19,7 +19,7 @@ In addition, you will need access to the SAP Business Technology Platform (BTP).
 
 ## Reference Architecture
 
-![image](https://github.com/ibm-build-lab/ibm-eis-sap-btp/assets/49033907/20289270-98b9-4820-b4b6-ab83345eeebd)
+![image](https://github.com/ibm-ecosystem-engineering/ibm-eis-sap-btp/assets/49033907/20289270-98b9-4820-b4b6-ab83345eeebd)
 
 ## Part 1: Deploy API Connectors with SAP Integration Suite 
 

@@ -4,8 +4,8 @@ This repository is intended to demonstrate integrations between IBM Environmenta
 
 There are two tutorials in this repoistory:
 
-1. **[Access Weather APIs.](https://github.com/ibm-build-lab/ibm-eis-sap-btp/tree/main/access-weather-api)** This tutorial demonstrates how multiple lines-of-business (LoB) can share a single IBM EIS API key, while allowing administrators to track usage per LoB. This is accomplished using SAP Integration Suite on BTP. The tutorial further demonstrates a weather application built using the SAP Build App framework.
-2. **[Consume Weather Alerts.](https://github.com/ibm-build-lab/ibm-eis-sap-btp/tree/main/alert-demo)** This tutorial demonstrates how IBM EIS weather alerts can be published to SAP Event Mesh message queues, from which multiple applications can potentially consume the alerts.
+1. **[Access Weather APIs.](https://github.com/ibm-ecosystem-engineering/ibm-eis-sap-btp/tree/main/access-weather-api)** This tutorial demonstrates how multiple lines-of-business (LoB) can share a single IBM EIS API key, while allowing administrators to track usage per LoB. This is accomplished using SAP Integration Suite on BTP. The tutorial further demonstrates a weather application built using the SAP Build App framework.
+2. **[Consume Weather Alerts.](https://github.com/ibm-ecosystem-engineering/ibm-eis-sap-btp/tree/main/alert-demo)** This tutorial demonstrates how IBM EIS weather alerts can be published to SAP Event Mesh message queues, from which multiple applications can potentially consume the alerts.
 
 In order to perform the tutorials you will need to have access to IBM EIS.
 

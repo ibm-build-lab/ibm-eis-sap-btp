@@ -25,7 +25,7 @@ In addition, you will need access to the SAP Business Technology Platform (BTP).
 
 This tutorial has three parts that should be performed in order.
 
-- [**Part 1:** Deploy SAP Event Mesh queue.](https://github.com/ibm-build-lab/ibm-eis-sap-btp/tree/main/alert-demo/event-mesh)
-- [**Part 2:** Deploy API connector SAP Integration Suite.](https://github.com/ibm-build-lab/ibm-eis-sap-btp/tree/main/alert-demo/connector)
-- [**Part 3:** Configure EIS alerting.](https://github.com/ibm-build-lab/ibm-eis-sap-btp/tree/main/alert-demo/eis)
+- [**Part 1:** Deploy SAP Event Mesh queue.](https://github.com/ibm-ecosystem-engineering/ibm-eis-sap-btp/tree/main/alert-demo/event-mesh)
+- [**Part 2:** Deploy API connector SAP Integration Suite.](https://github.com/ibm-ecosystem-engineering/ibm-eis-sap-btp/tree/main/alert-demo/connector)
+- [**Part 3:** Configure EIS alerting.](https://github.com/ibm-ecosystem-engineering/ibm-eis-sap-btp/tree/main/alert-demo/eis)
 

@@ -66,7 +66,7 @@ Set fields in the form using values as follows:
 
 Click **Create Instance**.
 
-![image](https://github.com/ibm-build-lab/ibm-eis-sap-btp/assets/49033907/8e2eef8d-0d35-4f14-91ce-b32a6b095934)
+![image](https://github.com/ibm-ecosystem-engineering/ibm-eis-sap-btp/assets/49033907/8e2eef8d-0d35-4f14-91ce-b32a6b095934)
 
 Select to import the **sendMessage** API call, and click **Import**.
 
